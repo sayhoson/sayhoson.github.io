@@ -57,7 +57,7 @@ function render() {
       <div class="profile-intro"><div><p class="eyebrow">${copy.profileEyebrow}</p><h2>${copy.profileTitle}</h2></div><p>${copy.profileLead}</p></div>
       <div class="intro-explorer">
         <div class="intro-tabs" role="tablist" aria-label="Researcher introduction">${introduction.map((item, index) => `<button type="button" role="tab" data-intro="${index}" aria-selected="${introView === index}" class="${introView === index ? "active" : ""}"><span>0${index + 1}</span>${item.tab}</button>`).join("")}</div>
-        <article class="intro-panel" role="tabpanel"><p class="intro-eyebrow">${activeIntroduction.eyebrow}</p><h3>${activeIntroduction.title}</h3><p>${activeIntroduction.body}</p>${tags(activeIntroduction.tags, "tag-list intro-tags")}</article>
+        <article class="intro-panel" role="tabpanel"><div class="intro-visual"><img src="${activeIntroduction.image}" alt="" loading="lazy"></div><div class="intro-copy"><p class="intro-eyebrow">${activeIntroduction.eyebrow}</p><h3>${activeIntroduction.title}</h3><p>${activeIntroduction.body}</p>${tags(activeIntroduction.tags, "tag-list intro-tags")}</div></article>
         <aside class="profile-facts"><div><span>Role</span><strong>${portfolio.profile.role}</strong></div><div><span>Department</span><strong>${portfolio.profile.department}</strong></div><div><span>Laboratory</span><strong>ADIP Laboratory</strong></div><div><span>Affiliation</span><strong>Hanyang University</strong></div></aside>
       </div>
     </div></section>
