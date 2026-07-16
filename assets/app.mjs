@@ -3,6 +3,7 @@ import { portfolio } from "./content.mjs";
 let language = "ko";
 let outputView = "publications";
 let menuOpen = false;
+let introView = 0;
 
 const root = document.querySelector("#portfolio-root");
 
@@ -29,6 +30,8 @@ function rotorGraphic() {
 function render() {
   const copy = portfolio.copy[language];
   const outputs = outputView === "publications" ? portfolio.publications : portfolio.talks;
+  const introduction = portfolio.introduction[language];
+  const activeIntroduction = introduction[introView];
   document.documentElement.lang = language;
   document.title = "Seho Son · Physics-informed AI for Rotating Machinery";
 
@@ -50,9 +53,13 @@ function render() {
       <div class="keyword-strip" aria-label="Research keywords">${portfolio.keywords.map((keyword) => `<span>${keyword}</span>`).join("")}</div>
     </section>
 
-    <section class="profile-section" id="identity"><div class="shell profile-grid">
-      <div><p class="eyebrow">${copy.profileEyebrow}</p><h2>${copy.profileTitle}</h2></div>
-      <div class="profile-summary"><p>${copy.profileLead}</p><dl><div><dt>Department</dt><dd>${portfolio.profile.department}</dd></div><div><dt>Laboratory</dt><dd>ADIP Laboratory</dd></div><div><dt>Affiliation</dt><dd>Hanyang University</dd></div></dl></div>
+    <section class="profile-section" id="identity"><div class="shell">
+      <div class="profile-intro"><div><p class="eyebrow">${copy.profileEyebrow}</p><h2>${copy.profileTitle}</h2></div><p>${copy.profileLead}</p></div>
+      <div class="intro-explorer">
+        <div class="intro-tabs" role="tablist" aria-label="Researcher introduction">${introduction.map((item, index) => `<button type="button" role="tab" data-intro="${index}" aria-selected="${introView === index}" class="${introView === index ? "active" : ""}"><span>0${index + 1}</span>${item.tab}</button>`).join("")}</div>
+        <article class="intro-panel" role="tabpanel"><p class="intro-eyebrow">${activeIntroduction.eyebrow}</p><h3>${activeIntroduction.title}</h3><p>${activeIntroduction.body}</p>${tags(activeIntroduction.tags, "tag-list intro-tags")}</article>
+        <aside class="profile-facts"><div><span>Role</span><strong>${portfolio.profile.role}</strong></div><div><span>Department</span><strong>${portfolio.profile.department}</strong></div><div><span>Laboratory</span><strong>ADIP Laboratory</strong></div><div><span>Affiliation</span><strong>Hanyang University</strong></div></aside>
+      </div>
     </div></section>
 
     <section class="identity-section"><div class="shell">
@@ -88,6 +95,7 @@ function render() {
   root.querySelectorAll("nav a").forEach((link) => link.addEventListener("click", () => { menuOpen = false; }));
   root.querySelectorAll("[data-language]").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; render(); }));
   root.querySelectorAll("[data-output]").forEach((button) => button.addEventListener("click", () => { outputView = button.dataset.output; const top = document.querySelector("#output")?.offsetTop; render(); if (top) window.scrollTo({ top, behavior: "instant" }); }));
+  root.querySelectorAll("[data-intro]").forEach((button) => button.addEventListener("click", () => { introView = Number(button.dataset.intro); const top = document.querySelector("#identity")?.offsetTop; render(); if (top) window.scrollTo({ top, behavior: "instant" }); }));
 }
 
 render();
