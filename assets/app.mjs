@@ -71,7 +71,7 @@ function render() {
 
     <section class="section section-projects" id="projects"><div class="shell">
       <div class="section-heading"><div><p class="eyebrow">${copy.projectEyebrow}</p><h2>${copy.projectTitle}</h2></div><p>${copy.projectLead}</p></div>
-      <div class="project-grid">${portfolio.projects.map((project) => `<article class="project-card ${project.featured ? "featured" : ""}"><div class="project-topline"><span>${project.index}</span><span>${project.subtitle}</span></div><div class="project-body"><div><h3>${project.title}</h3><p>${project[language]}</p></div><div class="project-metric"><strong>${project.metric}</strong><span>${project[language === "ko" ? "metricKo" : "metricEn"]}</span></div></div>${tags(project.methods, "tag-list project-tags")}</article>`).join("")}</div>
+      <div class="project-grid">${portfolio.projects.map((project) => `<article class="project-card ${project.featured ? "featured" : ""}"><div class="project-topline"><span>${project.index}</span><span>${project.subtitle}</span></div><div class="project-image"><img src="${project.image}" alt="" loading="lazy"></div><div class="project-body"><div><h3>${project.title}</h3><p>${project[language]}</p></div><div class="project-metric"><strong>${project.metric}</strong><span>${project[language === "ko" ? "metricKo" : "metricEn"]}</span></div></div>${tags(project.methods, "tag-list project-tags")}</article>`).join("")}</div>
     </div></section>
 
     <section class="section section-output" id="output"><div class="shell">
