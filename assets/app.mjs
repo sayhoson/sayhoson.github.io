@@ -37,7 +37,7 @@ function render() {
       <a class="wordmark" href="#top" aria-label="Seho Son portfolio home"><span>SEHO SON</span><small>SON, SEHO</small></a>
       <button class="menu-toggle" type="button" aria-expanded="${menuOpen}" aria-controls="site-navigation"><span class="sr-only">Menu</span><span></span><span></span></button>
       <div class="header-actions ${menuOpen ? "is-open" : ""}" id="site-navigation">
-        <nav aria-label="Primary navigation"><a href="#research">${copy.nav[0]}</a><a href="#projects">${copy.nav[1]}</a><a href="#output">${copy.nav[2]}</a></nav>
+        <nav aria-label="Primary navigation"><a href="#identity">${copy.nav[0]}</a><a href="#projects">${copy.nav[1]}</a><a href="#output">${copy.nav[2]}</a></nav>
         <div class="language-switch" aria-label="Language selection"><button data-language="ko" class="${language === "ko" ? "active" : ""}">KO</button><span>/</span><button data-language="en" class="${language === "en" ? "active" : ""}">EN</button></div>
       </div>
     </div></header>
@@ -49,6 +49,19 @@ function render() {
       ${rotorGraphic()}
       <div class="keyword-strip" aria-label="Research keywords">${portfolio.keywords.map((keyword) => `<span>${keyword}</span>`).join("")}</div>
     </section>
+
+    <section class="profile-section" id="identity"><div class="shell profile-grid">
+      <div><p class="eyebrow">${copy.profileEyebrow}</p><h2>${copy.profileTitle}</h2></div>
+      <div class="profile-summary"><p>${copy.profileLead}</p><dl><div><dt>Department</dt><dd>${portfolio.profile.department}</dd></div><div><dt>Laboratory</dt><dd>ADIP Laboratory</dd></div><div><dt>Affiliation</dt><dd>Hanyang University</dd></div></dl></div>
+    </div></section>
+
+    <section class="identity-section"><div class="shell">
+      <div class="identity-heading"><p class="eyebrow">${copy.identityEyebrow}</p><h2>${copy.identityTitle}</h2><p>${copy.identityLead}</p></div>
+      <div class="identity-grid">${portfolio.identity.map((item) => `<article><span>${item.abbr}</span><h3>${item.title}</h3><p>${item[language]}</p></article>`).join("")}</div>
+      <div class="convergence-line"><span>PHYSICS</span><i>+</i><span>DATA</span><i>+</i><span>AGENTS</span><b>→ VERIFIABLE INTELLIGENCE</b></div>
+    </div></section>
+
+    <section class="competency-section"><div class="shell"><div class="section-heading compact"><div><p class="eyebrow">${copy.competencyEyebrow}</p><h2>${copy.competencyTitle}</h2></div></div><div class="competency-grid">${portfolio.competencies.map((item) => `<article><span>${item.number}</span><h3>${item.title}</h3><p>${item[language]}</p></article>`).join("")}</div></div></section>
 
     <section class="section section-research" id="research"><div class="shell">
       <div class="section-heading"><div><p class="eyebrow">${copy.researchEyebrow}</p><h2>${copy.researchTitle}</h2></div><p>${copy.researchLead}</p></div>
