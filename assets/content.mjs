@@ -5,6 +5,13 @@ const introImages = {
 };
 
 export const portfolio = {
+  visuals: {
+    hero: "section-hero",
+    identity: "section-identity",
+    competency: "section-competency",
+    output: "section-output",
+    collaboration: "section-collaboration",
+  },
   profile: {
     name: "Seho Son",
     nameKo: "손세호",
@@ -99,6 +106,7 @@ export const portfolio = {
   research: [
     {
       number: "01",
+      image: "research-operator",
       title: "Physics-informed Operator Learning",
       ko: "편미분방정식, 경계·인터페이스 조건과 관측 데이터를 함께 학습하는 DeepONet 기반 연산자 모델을 개발합니다.",
       en: "I develop DeepONet-based operator models that jointly learn governing PDEs, boundary and interface conditions, and observations.",
@@ -106,6 +114,7 @@ export const portfolio = {
     },
     {
       number: "02",
+      image: "research-multiphysics",
       title: "Multiphysics Digital Twin",
       ko: "전자기장부터 구조 진동까지 이어지는 다중물리 연계를 효율적으로 예측해 회전체 기계의 시스템 수준 디지털 트윈을 구현합니다.",
       en: "I build system-level digital twins of rotating machinery by efficiently predicting coupled electromagnetic and structural responses.",
@@ -113,6 +122,7 @@ export const portfolio = {
     },
     {
       number: "03",
+      image: "research-virtual-sensing",
       title: "Full-field Virtual Sensing",
       ko: "희소한 실험 센서로부터 접근하기 어려운 위치의 전주파수·전공간 응답을 복원하고 도메인 차이를 보정합니다.",
       en: "I reconstruct full-frequency, full-field responses at inaccessible locations from sparse measurements while correcting domain shift.",
