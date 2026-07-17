@@ -276,6 +276,40 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(6px); }
 .output-list { border-bottom: 1px solid var(--line); }
 .output-item { display: grid; grid-template-columns: 160px minmax(0, 1fr) 140px; gap: 42px; padding: 38px 0; border-top: 1px solid var(--line); align-items: start; }
 .output-item:first-child { border-top: 0; }
+.output-item.publication-item { grid-template-columns: minmax(190px, 240px) minmax(0, 1fr) 140px; gap: clamp(34px, 6vw, 84px); padding: 58px 0; align-items: center; }
+.paper-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: var(--paper-light);
+  box-shadow: 0 18px 38px rgba(7, 23, 45, .12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.paper-cover::after { content: ""; position: absolute; top: 0; right: 0; width: 4px; height: 100%; background: var(--blue); }
+.paper-cover[data-cover="1"] { color: var(--white); background: var(--ink); border-color: var(--ink); }
+.paper-cover[data-cover="2"] { color: var(--ink); background: var(--paper-light); }
+.paper-cover[data-cover="3"] { color: var(--ink); background: #eef7f7; }
+.paper-cover-top, .paper-cover-bottom { position: relative; z-index: 1; display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px solid currentColor; font-size: 7px; font-weight: 800; letter-spacing: .13em; line-height: 1.35; text-transform: uppercase; }
+.paper-cover-bottom { margin-top: auto; padding: 10px 0 0; border-top: 1px solid currentColor; border-bottom: 0; }
+.paper-cover-body { position: relative; z-index: 1; flex: 1; padding: 28px 3px 20px; display: flex; flex-direction: column; }
+.paper-cover-body > span { color: var(--blue); font-size: 8px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.paper-cover-body strong { margin-top: 14px; font-family: var(--display); font-size: clamp(17px, 1.65vw, 23px); font-weight: 400; line-height: 1.04; letter-spacing: -.045em; }
+.paper-cover-signal { height: 62px; margin-top: auto; padding-block: 11px; border-block: 1px solid currentColor; display: flex; align-items: center; gap: 4px; }
+.paper-cover-signal span { flex: 1; min-width: 3px; background: var(--blue); }
+.paper-cover-signal span:nth-child(1) { height: 24%; }
+.paper-cover-signal span:nth-child(2) { height: 48%; }
+.paper-cover-signal span:nth-child(3) { height: 82%; }
+.paper-cover-signal span:nth-child(4) { height: 38%; }
+.paper-cover-signal span:nth-child(5) { height: 66%; }
+.paper-cover-signal span:nth-child(6) { height: 92%; }
+.paper-cover-signal span:nth-child(7) { height: 30%; }
+.publication-item .output-copy { max-width: 760px; }
+.publication-item .output-meta { margin-bottom: 24px; }
+.publication-item h3 { font-family: var(--display); }
 .output-meta { display: flex; flex-direction: column; gap: 8px; color: var(--blue); font-size: 10px; line-height: 1.4; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; }
 .output-meta span:last-child { color: var(--muted); }
 .output-item h3 { max-width: 900px; margin: 0; font-size: clamp(19px, 2vw, 27px); line-height: 1.35; letter-spacing: -0.025em; }
@@ -331,6 +365,8 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(6px); }
   .project-body { grid-template-columns: 1fr; }
   .research-item { grid-template-columns: 48px minmax(220px, .65fr) minmax(0, 1fr); gap: 22px; }
   .project-metric { align-items: flex-start; text-align: left; }
+  .output-item.publication-item { grid-template-columns: minmax(180px, 220px) minmax(0, 1fr); gap: 36px; }
+  .publication-item .output-status { grid-column: 2; justify-self: start; }
 }
 
 @media (max-width: 720px) {
@@ -376,6 +412,9 @@ a:hover .arrow, a:focus-visible .arrow { transform: translateX(6px); }
   .project-body { gap: 26px; }
   .output-tabs button { min-width: 0; flex: 1; }
   .output-item { grid-template-columns: 1fr; gap: 18px; }
+  .output-item.publication-item { grid-template-columns: 1fr; gap: 28px; padding: 48px 0; }
+  .paper-cover { width: min(100%, 260px); justify-self: center; }
+  .publication-item .output-status { grid-column: auto; }
   .output-meta { flex-direction: row; }
   .output-status { justify-self: start; }
   .footer-inner { grid-template-columns: 1fr auto; }

@@ -29,3 +29,11 @@ test("provides the selected academic visual system and motion safeguards", () =>
   assert.match(styles, /:focus-visible/);
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
 });
+
+test("introduces papers with generated academic cover pages", () => {
+  assert.match(app, /function paperCover/);
+  assert.match(app, /class="paper-cover"/);
+  assert.match(app, /SEHO SON \/ RESEARCH/);
+  assert.match(styles, /aspect-ratio:\s*210 \/ 297/);
+  assert.match(styles, /\.publication-item h3/);
+});
