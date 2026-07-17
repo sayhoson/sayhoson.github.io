@@ -65,7 +65,7 @@ function render() {
     </div></header>
 
     <section class="hero shell">
-      <div class="hero-copy reveal"><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
+      <div class="hero-copy reveal"><div class="hero-folio"><span>Research dossier / 2026</span><span>Hanyang University · ADIP Laboratory</span></div><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
         <div class="hero-actions"><a class="button button-primary" href="#research">${copy.primary}${arrow}</a><a class="text-link" href="#output">${copy.secondary}${arrow}</a></div>
       </div>
       <div class="hero-image"><img src="${generatedImages[portfolio.visuals.hero]}" alt="System-level rotating machinery digital twin" fetchpriority="high"></div>
