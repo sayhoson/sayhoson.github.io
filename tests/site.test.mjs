@@ -1,11 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const [index, app, styles] = await Promise.all([
+const [index, app, styles, content, paperCoverFiles] = await Promise.all([
   readFile(new URL("../index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/app.mjs", import.meta.url), "utf8"),
   readFile(new URL("../assets/styles.css", import.meta.url), "utf8"),
+  readFile(new URL("../assets/content.mjs", import.meta.url), "utf8"),
+  readdir(new URL("../assets/paper-covers/", import.meta.url)),
 ]);
 
 test("publishes canonical and social metadata", () => {
@@ -30,10 +32,12 @@ test("provides the selected academic visual system and motion safeguards", () =>
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
 });
 
-test("introduces papers with generated academic cover pages", () => {
+test("introduces papers with verified PDF first-page covers", () => {
   assert.match(app, /function paperCover/);
-  assert.match(app, /class="paper-cover"/);
+  assert.match(app, /actual-paper-cover/);
   assert.match(app, /SEHO SON \/ RESEARCH/);
   assert.match(styles, /aspect-ratio:\s*210 \/ 297/);
   assert.match(styles, /\.publication-item h3/);
+  assert.equal((content.match(/cover: "\.\/assets\/paper-covers\//g) || []).length, 9);
+  assert.equal(paperCoverFiles.filter((name) => name.endsWith(".webp")).length, 9);
 });

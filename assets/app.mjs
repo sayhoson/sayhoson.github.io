@@ -32,7 +32,13 @@ const coverSignal = '<div class="paper-cover-signal"><span></span><span></span><
 
 function paperCover(item, index, total) {
   const folio = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
-  return `<div class="paper-cover" data-cover="${(index % 3) + 1}" aria-hidden="true">
+  if (item.cover) {
+    return `<div class="paper-cover actual-paper-cover" aria-hidden="true">
+      <img src="${item.cover}" alt="" loading="lazy">
+      <span class="paper-cover-index">${folio}</span>
+    </div>`;
+  }
+  return `<div class="paper-cover generated-paper-cover" data-cover="${(index % 3) + 1}" aria-hidden="true">
     <div class="paper-cover-top"><span>SEHO SON / RESEARCH</span><span>${folio}</span></div>
     <div class="paper-cover-body"><span>${item.type}</span><strong>${item.title}</strong>${coverSignal}</div>
     <div class="paper-cover-bottom"><span>HANYANG</span><span>ADIP LAB</span></div>
