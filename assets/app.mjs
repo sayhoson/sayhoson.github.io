@@ -28,6 +28,22 @@ const root = document.querySelector("#portfolio-root");
 
 const arrow = '<span class="arrow" aria-hidden="true">→</span>';
 const tags = (items, className = "tag-list") => `<ul class="${className}">${items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+const coverSignal = '<div class="paper-cover-signal"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>';
+
+function paperCover(item, index, total) {
+  const folio = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
+  if (item.cover) {
+    return `<div class="paper-cover actual-paper-cover" aria-hidden="true">
+      <img src="${item.cover}" alt="" loading="lazy">
+      <span class="paper-cover-index">${folio}</span>
+    </div>`;
+  }
+  return `<div class="paper-cover generated-paper-cover" data-cover="${(index % 3) + 1}" aria-hidden="true">
+    <div class="paper-cover-top"><span>SEHO SON / RESEARCH</span><span>${folio}</span></div>
+    <div class="paper-cover-body"><span>${item.type}</span><strong>${item.title}</strong>${coverSignal}</div>
+    <div class="paper-cover-bottom"><span>HANYANG</span><span>ADIP LAB</span></div>
+  </div>`;
+}
 
 function rotorGraphic() {
   return `<div class="rotor-graphic" aria-hidden="true">
@@ -49,6 +65,18 @@ function rotorGraphic() {
 function render() {
   const copy = portfolio.copy[language];
   const outputs = outputView === "publications" ? portfolio.publications : portfolio.talks;
+  const outputMarkup = outputs.map((item, index) => {
+    const isPublication = outputView === "publications";
+    return `<article class="output-item ${isPublication ? "publication-item" : "talk-item"}">
+      ${isPublication ? paperCover(item, index, outputs.length) : ""}
+      <div class="output-copy">
+        <div class="output-meta"><span>${item.year}</span><span>${item.type}</span></div>
+        <h3>${item.title}</h3>
+        <p>${item[language === "ko" ? "metaKo" : "metaEn"]}</p>
+      </div>
+      <span class="output-status">${copy.placeholder}</span>
+    </article>`;
+  }).join("");
   const introduction = portfolio.introduction[language];
   const activeIntroduction = introduction[introView];
   document.documentElement.lang = language;
@@ -65,7 +93,7 @@ function render() {
     </div></header>
 
     <section class="hero shell">
-      <div class="hero-copy reveal"><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
+      <div class="hero-copy reveal"><div class="hero-folio"><span>Research dossier / 2026</span><span>Hanyang University · ADIP Laboratory</span></div><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
         <div class="hero-actions"><a class="button button-primary" href="#research">${copy.primary}${arrow}</a><a class="text-link" href="#output">${copy.secondary}${arrow}</a></div>
       </div>
       <div class="hero-image"><img src="${generatedImages[portfolio.visuals.hero]}" alt="System-level rotating machinery digital twin" fetchpriority="high"></div>
@@ -105,7 +133,7 @@ function render() {
       <div class="section-heading output-heading"><div><p class="eyebrow">${copy.outputEyebrow}</p><h2>${copy.outputTitle}</h2></div><p>${copy.outputLead}</p></div>
       <div class="section-media output-media"><img src="${generatedImages[portfolio.visuals.output]}" alt="" loading="lazy"></div>
       <div class="output-tabs" role="tablist" aria-label="Research output type"><button data-output="publications" role="tab" aria-selected="${outputView === "publications"}" class="${outputView === "publications" ? "active" : ""}">${copy.publicationsTab}<span>${String(portfolio.publications.length).padStart(2, "0")}</span></button><button data-output="talks" role="tab" aria-selected="${outputView === "talks"}" class="${outputView === "talks" ? "active" : ""}">${copy.talksTab}<span>${String(portfolio.talks.length).padStart(2, "0")}</span></button></div>
-      <div class="output-list" role="tabpanel">${outputs.map((item) => `<article class="output-item"><div class="output-meta"><span>${item.year}</span><span>${item.type}</span></div><div><h3>${item.title}</h3><p>${item[language === "ko" ? "metaKo" : "metaEn"]}</p></div><span class="output-status">${copy.placeholder}</span></article>`).join("")}</div>
+      <div class="output-list ${outputView === "publications" ? "publication-list" : "talk-list"}" role="tabpanel">${outputMarkup}</div>
     </div></section>
 
     <section class="contact-section"><div class="shell contact-visual"><img src="${generatedImages[portfolio.visuals.collaboration]}" alt="" loading="lazy"></div><div class="shell contact-inner"><div><p class="eyebrow">${copy.contactEyebrow}</p><h2>${copy.contactTitle}</h2></div><div><p>${copy.contactLead}</p><div class="profile-links"><a href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a><a href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a></div></div></div></section>
