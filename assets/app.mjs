@@ -1,22 +1,13 @@
 import { portfolio } from "./content.mjs";
-import sectionHero from "./image-data/section-hero.mjs";
-import sectionIdentity from "./image-data/section-identity.mjs";
-import sectionCompetency from "./image-data/section-competency.mjs";
-import researchOperator from "./image-data/research-operator.mjs";
-import researchMultiphysics from "./image-data/research-multiphysics.mjs";
-import researchVirtualSensing from "./image-data/research-virtual-sensing.mjs";
-import sectionOutput from "./image-data/section-output.mjs";
-import sectionCollaboration from "./image-data/section-collaboration.mjs";
-
 const generatedImages = {
-  "section-hero": sectionHero,
-  "section-identity": sectionIdentity,
-  "section-competency": sectionCompetency,
-  "research-operator": researchOperator,
-  "research-multiphysics": researchMultiphysics,
-  "research-virtual-sensing": researchVirtualSensing,
-  "section-output": sectionOutput,
-  "section-collaboration": sectionCollaboration,
+  "section-hero": "./assets/visuals/rotor-digital-twin.png",
+  "section-identity": "./assets/visuals/sensor-twin.png",
+  "section-competency": "./assets/visuals/sensor-twin.png",
+  "research-operator": "./assets/visuals/rotor-digital-twin.png",
+  "research-multiphysics": "./assets/visuals/sensor-twin.png",
+  "research-virtual-sensing": "./assets/visuals/research-network.png",
+  "section-output": "./assets/visuals/sensor-twin.png",
+  "section-collaboration": "./assets/visuals/research-network.png",
 };
 
 let language = "ko";
@@ -88,7 +79,7 @@ function render() {
       <button class="menu-toggle" type="button" aria-expanded="${menuOpen}" aria-controls="site-navigation"><span class="sr-only">Menu</span><span></span><span></span></button>
       <div class="header-actions ${menuOpen ? "is-open" : ""}" id="site-navigation">
         <nav aria-label="Primary navigation"><a href="#identity">${copy.nav[0]}</a><a href="#projects">${copy.nav[1]}</a><a href="#output">${copy.nav[2]}</a></nav>
-        <div class="language-switch" aria-label="Language selection"><button data-language="ko" class="${language === "ko" ? "active" : ""}">KO</button><span>/</span><button data-language="en" class="${language === "en" ? "active" : ""}">EN</button></div>
+        <div class="language-switch" aria-label="Language selection"><button data-language="ko" aria-pressed="${language === "ko"}" class="${language === "ko" ? "active" : ""}">KO</button><span>/</span><button data-language="en" aria-pressed="${language === "en"}" class="${language === "en" ? "active" : ""}">EN</button></div>
       </div>
     </div></header>
 
@@ -103,8 +94,8 @@ function render() {
     <section class="profile-section" id="identity"><div class="shell">
       <div class="profile-intro"><div><p class="eyebrow">${copy.profileEyebrow}</p><h2>${copy.profileTitle}</h2></div><p>${copy.profileLead}</p></div>
       <div class="intro-explorer">
-        <div class="intro-tabs" role="tablist" aria-label="Researcher introduction">${introduction.map((item, index) => `<button type="button" role="tab" data-intro="${index}" aria-selected="${introView === index}" class="${introView === index ? "active" : ""}"><span>0${index + 1}</span>${item.tab}</button>`).join("")}</div>
-        <article class="intro-panel" role="tabpanel"><div class="intro-visual"><img src="${activeIntroduction.image}" alt="" loading="lazy"></div><div class="intro-copy"><p class="intro-eyebrow">${activeIntroduction.eyebrow}</p><h3>${activeIntroduction.title}</h3><p>${activeIntroduction.body}</p>${tags(activeIntroduction.tags, "tag-list intro-tags")}</div></article>
+        <div class="intro-tabs" role="tablist" aria-label="Researcher introduction">${introduction.map((item, index) => `<button type="button" id="intro-tab-${index}" role="tab" data-intro="${index}" aria-controls="intro-panel" aria-selected="${introView === index}" class="${introView === index ? "active" : ""}"><span>0${index + 1}</span>${item.tab}</button>`).join("")}</div>
+        <article class="intro-panel" id="intro-panel" role="tabpanel" aria-labelledby="intro-tab-${introView}"><div class="intro-visual"><img src="${activeIntroduction.image}" alt="" loading="lazy"></div><div class="intro-copy"><p class="intro-eyebrow">${activeIntroduction.eyebrow}</p><h3>${activeIntroduction.title}</h3><p>${activeIntroduction.body}</p>${tags(activeIntroduction.tags, "tag-list intro-tags")}</div></article>
         <aside class="profile-facts"><div><span>Role</span><strong>${portfolio.profile.role}</strong></div><div><span>Department</span><strong>${portfolio.profile.department}</strong></div><div><span>Laboratory</span><strong>ADIP Laboratory</strong></div><div><span>Affiliation</span><strong>Hanyang University</strong></div></aside>
       </div>
     </div></section>
@@ -132,8 +123,8 @@ function render() {
     <section class="section section-output" id="output"><div class="shell">
       <div class="section-heading output-heading"><div><p class="eyebrow">${copy.outputEyebrow}</p><h2>${copy.outputTitle}</h2></div><p>${copy.outputLead}</p></div>
       <div class="section-media output-media"><img src="${generatedImages[portfolio.visuals.output]}" alt="" loading="lazy"></div>
-      <div class="output-tabs" role="tablist" aria-label="Research output type"><button data-output="publications" role="tab" aria-selected="${outputView === "publications"}" class="${outputView === "publications" ? "active" : ""}">${copy.publicationsTab}<span>${String(portfolio.publications.length).padStart(2, "0")}</span></button><button data-output="talks" role="tab" aria-selected="${outputView === "talks"}" class="${outputView === "talks" ? "active" : ""}">${copy.talksTab}<span>${String(portfolio.talks.length).padStart(2, "0")}</span></button></div>
-      <div class="output-list ${outputView === "publications" ? "publication-list" : "talk-list"}" role="tabpanel">${outputMarkup}</div>
+      <div class="output-tabs" role="tablist" aria-label="Research output type"><button id="output-tab-publications" data-output="publications" role="tab" aria-controls="output-panel" aria-selected="${outputView === "publications"}" class="${outputView === "publications" ? "active" : ""}">${copy.publicationsTab}<span>${String(portfolio.publications.length).padStart(2, "0")}</span></button><button id="output-tab-talks" data-output="talks" role="tab" aria-controls="output-panel" aria-selected="${outputView === "talks"}" class="${outputView === "talks" ? "active" : ""}">${copy.talksTab}<span>${String(portfolio.talks.length).padStart(2, "0")}</span></button></div>
+      <div class="output-list ${outputView === "publications" ? "publication-list" : "talk-list"}" id="output-panel" role="tabpanel" aria-labelledby="output-tab-${outputView}">${outputMarkup}</div>
     </div></section>
 
     <section class="contact-section"><div class="shell contact-visual"><img src="${generatedImages[portfolio.visuals.collaboration]}" alt="" loading="lazy"></div><div class="shell contact-inner"><div><p class="eyebrow">${copy.contactEyebrow}</p><h2>${copy.contactTitle}</h2></div><div><p>${copy.contactLead}</p><div class="profile-links"><a href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a><a href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a></div></div></div></section>
