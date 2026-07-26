@@ -2,13 +2,14 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const [index, app, styles, content, paperCoverFiles, researchPhotoFiles] = await Promise.all([
+const [index, app, styles, content, paperCoverFiles, researchPhotoFiles, researchDiagramFiles] = await Promise.all([
   readFile(new URL("../index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/app.mjs", import.meta.url), "utf8"),
   readFile(new URL("../assets/styles.css", import.meta.url), "utf8"),
   readFile(new URL("../assets/content.mjs", import.meta.url), "utf8"),
   readdir(new URL("../assets/paper-covers/", import.meta.url)),
   readdir(new URL("../assets/research-photos/", import.meta.url)),
+  readdir(new URL("../assets/research-diagrams/", import.meta.url)),
 ]);
 
 test("publishes canonical and social metadata", () => {
@@ -34,15 +35,19 @@ test("provides the instrument-dark portfolio system and motion safeguards", () =
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
 });
 
-test("uses actual rotating-machine photos instead of generated decorative visuals", () => {
+test("uses topic-specific photos and diagrams instead of decorative visuals", () => {
   assert.match(app, /assets\/research-photos\/pmsm-assembly\.jpg/);
   assert.match(app, /assets\/research-photos\/stator-winding\.jpg/);
-  assert.match(app, /assets\/research-photos\/rotor-balance\.jpg/);
+  assert.match(app, /assets\/research-diagrams\/operator-learning\.svg/);
+  assert.match(app, /assets\/research-diagrams\/digital-twin\.svg/);
+  assert.match(app, /assets\/research-diagrams\/virtual-sensing\.svg/);
+  assert.match(app, /assets\/research-diagrams\/collaboration-map\.svg/);
   assert.match(app, /Photo credits/);
   assert.match(app, /const researchImages/);
   assert.doesNotMatch(app, /generatedImages/);
   assert.doesNotMatch(app, /import sectionHero/);
   assert.equal(researchPhotoFiles.filter((name) => name.endsWith(".jpg")).length, 4);
+  assert.equal(researchDiagramFiles.filter((name) => name.endsWith(".svg")).length, 4);
 });
 
 test("connects language and tab controls to their rendered state", () => {

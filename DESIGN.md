@@ -23,7 +23,8 @@ Color is semantic: cyan never decorates static copy, and copper only supports th
 
 ## 3. Typography
 
-- Display: `"DM Mono", "IBM Plex Mono", monospace`, 700, `clamp(2.65rem, 6.8vw, 6.6rem)`, line-height .94, tracking `-.065em`.
+- Latin display: `"DM Mono", "IBM Plex Mono", monospace`, 700, `clamp(2.65rem, 6.8vw, 6.6rem)`, line-height .94, tracking `-.065em`.
+- Korean display: `Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif`, 800, line-height 1.16, tracking `-.055em`. Korean headings do not use the Latin monospace display face.
 - Text: `"Manrope", "Noto Sans KR", system-ui, sans-serif`, 400–700, 14px minimum, body 16px / 1.7.
 - Technical labels: display family, 11–12px, 0.13em tracking, uppercase only for Latin labels.
 
@@ -40,9 +41,13 @@ Base unit is 4px. Tokens are 4, 8, 12, 16, 24, 32, 48, 64, 96, and 128px. Conten
 - **Accessibility**: 44px minimum tap target; meaningful label; visible keyboard focus.
 
 ### Research card
-- **Structure**: media, index, title, explanatory text, tag list.
+- **Structure**: topic-specific research diagram, index, title, explanatory text, tag list.
 - **States**: default framed surface; hover raises only the media crop and line contrast; no information is hidden on hover.
 - **Accessibility**: image alt describes the research concept; tags remain semantic list items.
+
+### Collaboration map
+- **Structure**: modeling, experiment, and application stages shown as a connected research loop.
+- **Accessibility**: concise alt text exposes the three-stage relationship when the graphic is read by assistive technology.
 
 ### Segmented tabs
 - **Structure**: `role=tablist` buttons and `role=tabpanel` content.

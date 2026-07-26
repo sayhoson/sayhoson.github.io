@@ -3,11 +3,17 @@ const researchImages = {
   "section-hero": "./assets/research-photos/pmsm-assembly.jpg",
   "section-identity": "./assets/research-photos/stator-winding.jpg",
   "section-competency": "./assets/research-photos/motor-research-lab.jpg",
-  "research-operator": "./assets/research-photos/pmsm-assembly.jpg",
-  "research-multiphysics": "./assets/research-photos/stator-winding.jpg",
-  "research-virtual-sensing": "./assets/research-photos/rotor-balance.jpg",
+  "research-operator": "./assets/research-diagrams/operator-learning.svg",
+  "research-multiphysics": "./assets/research-diagrams/digital-twin.svg",
+  "research-virtual-sensing": "./assets/research-diagrams/virtual-sensing.svg",
   "section-output": "./assets/research-photos/motor-research-lab.jpg",
-  "section-collaboration": "./assets/research-photos/rotor-balance.jpg",
+  "section-collaboration": "./assets/research-diagrams/collaboration-map.svg",
+};
+
+const researchImageAlt = {
+  "research-operator": "Physics-informed operator learning: conditions and physical constraints flow through a deep operator network to a predicted response field.",
+  "research-multiphysics": "Multiphysics digital twin: a physical PMSM is coupled to electromagnetic and structural models for validation.",
+  "research-virtual-sensing": "Full-field virtual sensing: sparse sensor measurements are expanded into an inaccessible response field.",
 };
 
 let language = "ko";
@@ -111,7 +117,7 @@ function render() {
 
     <section class="section section-research" id="research"><div class="shell">
       <div class="section-heading"><div><p class="eyebrow">${copy.researchEyebrow}</p><h2>${copy.researchTitle}</h2></div><p>${copy.researchLead}</p></div>
-      <div class="research-list">${portfolio.research.map((item) => `<article class="research-item"><span class="item-number">${item.number}</span><div class="research-image"><img src="${researchImages[item.image]}" alt="" loading="lazy"></div><div><h3>${item.title}</h3><p>${item[language]}</p>${tags(item.tags)}</div></article>`).join("")}</div>
+      <div class="research-list">${portfolio.research.map((item) => `<article class="research-item"><span class="item-number">${item.number}</span><div class="research-image"><img src="${researchImages[item.image]}" alt="${researchImageAlt[item.image]}" loading="lazy"></div><div><h3>${item.title}</h3><p>${item[language]}</p>${tags(item.tags)}</div></article>`).join("")}</div>
       <div class="stats-row">${portfolio.stats.map((stat) => `<div class="stat"><strong>${stat.value}</strong><span>${stat[language]}</span></div>`).join("")}</div>
     </div></section>
 

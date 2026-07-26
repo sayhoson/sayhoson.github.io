@@ -19,6 +19,7 @@
   --max-width: 1240px;
   --side: clamp(22px, 4vw, 64px);
   --display: "DM Mono", "IBM Plex Mono", monospace;
+  --display-ko: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
   --sans: "Manrope", Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", sans-serif;
 }
 
@@ -488,6 +489,17 @@ body {
   background: linear-gradient(90deg, rgba(5, 11, 20, .56), transparent 38%), linear-gradient(180deg, transparent 58%, rgba(5, 11, 20, .6));
 }
 .hero h1, .profile-intro h2, .identity-heading h2, .section-heading h2, .contact-inner h2, .intro-panel h3, .project-card h3 { font-family: var(--display); font-weight: 500; }
+html[lang="ko"] .profile-intro h2,
+html[lang="ko"] .identity-heading h2,
+html[lang="ko"] .section-heading h2,
+html[lang="ko"] .contact-inner h2,
+html[lang="ko"] .intro-panel h3,
+html[lang="ko"] .project-card h3 {
+  font-family: var(--display-ko);
+  font-weight: 800;
+  letter-spacing: -.055em;
+  line-height: 1.16;
+}
 .reveal { animation: none; opacity: 1; transform: none; }
 .hero h1 { font-size: clamp(3.15rem, 6.2vw, 6.55rem); line-height: .94; letter-spacing: -.07em; }
 .hero-intro { color: var(--paper-300); font-family: var(--sans); font-size: clamp(1rem, 1.35vw, 1.15rem); letter-spacing: 0; line-height: 1.8; }
