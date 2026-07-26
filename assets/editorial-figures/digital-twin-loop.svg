@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Multiphysics digital twin diagram</title><desc id="desc">A physical motor and its coupled electromagnetic, thermal, and vibration models exchange data in a digital-twin feedback loop.</desc>
+  <rect width="960" height="640" fill="#e9eee9"/>
+  <g fill="none" stroke="#1d2324" stroke-width="2"><circle cx="258" cy="318" r="157"/><circle cx="702" cy="318" r="157"/><path d="M416 318h121"/><path d="m529 309 14 9-14 9"/><path d="M545 428C480 554 318 558 204 480"/><path d="m214 472-14 8 5-15"/><path d="M418 207C506 107 683 103 778 189"/><path d="m771 179 13 8-15 3"/></g>
+  <g fill="#fffdf8" stroke="#1d2324" stroke-width="2"><rect x="155" y="255" width="204" height="126" rx="4"/><rect x="600" y="255" width="204" height="126" rx="4"/></g>
+  <g fill="#315c79"><rect x="180" y="286" width="42" height="65"/><circle cx="255" cy="318" r="40" fill="none" stroke="#315c79" stroke-width="8"/><path d="M298 318h39" stroke="#315c79" stroke-width="12"/><circle cx="650" cy="297" r="26"/><circle cx="754" cy="297" r="26"/><circle cx="702" cy="345" r="26"/></g>
+  <g font-family="Arial, sans-serif" fill="#1d2324"><text x="181" y="231" font-size="17" letter-spacing="2">EXPERIMENT</text><text x="624" y="231" font-size="17" letter-spacing="2">DIGITAL TWIN</text><text x="172" y="421" font-size="16">current · temperature · vibration</text><text x="631" y="421" font-size="16">EM · thermal · structural</text><text x="383" y="299" font-size="16" fill="#315c79">calibrate</text><text x="470" y="352" font-size="16" fill="#315c79">predict</text></g>
+  <text x="58" y="576" fill="#315c79" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">FIG. 02 / CLOSE THE LOOP BETWEEN MODEL AND MEASUREMENT</text>
+</svg>

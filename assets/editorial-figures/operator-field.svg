@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Physics-informed operator learning diagram</title>
+  <desc id="desc">Boundary conditions and physical equations are mapped through an operator network to a response field.</desc>
+  <rect width="960" height="640" fill="#f4f1ea"/>
+  <g fill="none" stroke="#1d2324" stroke-width="2">
+    <rect x="58" y="92" width="210" height="150" rx="4"/><rect x="58" y="322" width="210" height="150" rx="4"/>
+    <rect x="375" y="170" width="210" height="260" rx="4"/><rect x="693" y="130" width="208" height="330" rx="4"/>
+    <path d="M268 167H343M268 397H343M585 298h78"/><path d="m333 158 14 9-14 9M333 388l14 9-14 9M653 289l14 9-14 9"/>
+  </g>
+  <g fill="#315c79"><circle cx="115" cy="160" r="8"/><circle cx="165" cy="135" r="8"/><circle cx="210" cy="185" r="8"/><circle cx="130" cy="390" r="8"/><circle cx="190" cy="365" r="8"/><circle cx="215" cy="425" r="8"/></g>
+  <g stroke="#315c79" stroke-width="2" fill="none"><path d="M115 160 165 135 210 185"/><path d="M130 390q30-80 60-25t25 60"/><path d="M411 364c24-80 50-125 78-125s45 52 66 123"/><path d="M411 378c37-34 90-34 144 0"/></g>
+  <g fill="#1d2324" font-family="Arial, sans-serif"><text x="84" y="123" font-size="18" letter-spacing="2">CONDITIONS</text><text x="84" y="353" font-size="18" letter-spacing="2">PHYSICS</text><text x="408" y="215" font-size="18" letter-spacing="2">OPERATOR</text><text x="408" y="242" font-size="18">DeepONet + constraints</text><text x="720" y="175" font-size="18" letter-spacing="2">RESPONSE FIELD</text><text x="722" y="426" font-size="15" fill="#556161">continuous state reconstruction</text></g>
+  <g fill="none" stroke="#315c79" stroke-width="3"><path d="M724 350c21-92 38 46 58-58s37 68 60-38 36 73 47-21"/><path d="M724 390c30-35 50-41 71-14s45 21 94-28"/></g>
+  <text x="58" y="576" fill="#315c79" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">FIG. 01 / LEARNING THE MAP, NOT ONLY THE POINT</text>
+</svg>
