@@ -1,18 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile, readdir, stat } from "node:fs/promises";
+import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const [index, app, styles, content, paperCoverFiles, visualStats] = await Promise.all([
+const [index, app, styles, content, paperCoverFiles] = await Promise.all([
   readFile(new URL("../index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/app.mjs", import.meta.url), "utf8"),
   readFile(new URL("../assets/styles.css", import.meta.url), "utf8"),
   readFile(new URL("../assets/content.mjs", import.meta.url), "utf8"),
   readdir(new URL("../assets/paper-covers/", import.meta.url)),
-  Promise.all([
-    stat(new URL("../assets/visuals/rotor-digital-twin.png", import.meta.url)),
-    stat(new URL("../assets/visuals/sensor-twin.png", import.meta.url)),
-    stat(new URL("../assets/visuals/research-network.png", import.meta.url)),
-  ]),
 ]);
 
 test("publishes canonical and social metadata", () => {
@@ -38,12 +33,13 @@ test("provides the instrument-dark portfolio system and motion safeguards", () =
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/);
 });
 
-test("uses local generated visuals instead of embedded image-data payloads", () => {
-  assert.match(app, /assets\/visuals\/rotor-digital-twin\.png/);
-  assert.match(app, /assets\/visuals\/sensor-twin\.png/);
-  assert.match(app, /assets\/visuals\/research-network\.png/);
+test("uses verified publication material instead of generated decorative visuals", () => {
+  assert.match(app, /assets\/paper-covers\/pmsm-mpi-don\.webp/);
+  assert.match(app, /assets\/paper-covers\/multi-fidelity-virtual-sensing\.webp/);
+  assert.match(app, /assets\/paper-covers\/pinn-electromagnetism-pmsm\.webp/);
+  assert.match(app, /const researchImages/);
+  assert.doesNotMatch(app, /generatedImages/);
   assert.doesNotMatch(app, /import sectionHero/);
-  assert.ok(visualStats.every((item) => item.size > 1_000_000));
 });
 
 test("connects language and tab controls to their rendered state", () => {

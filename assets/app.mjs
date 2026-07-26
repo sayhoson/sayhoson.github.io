@@ -1,13 +1,13 @@
 import { portfolio } from "./content.mjs";
-const generatedImages = {
-  "section-hero": "./assets/visuals/rotor-digital-twin.png",
-  "section-identity": "./assets/visuals/sensor-twin.png",
-  "section-competency": "./assets/visuals/sensor-twin.png",
-  "research-operator": "./assets/visuals/rotor-digital-twin.png",
-  "research-multiphysics": "./assets/visuals/sensor-twin.png",
-  "research-virtual-sensing": "./assets/visuals/research-network.png",
-  "section-output": "./assets/visuals/sensor-twin.png",
-  "section-collaboration": "./assets/visuals/research-network.png",
+const researchImages = {
+  "section-hero": "./assets/paper-covers/pmsm-mpi-don.webp",
+  "section-identity": "./assets/paper-covers/pinn-electromagnetism-pmsm.webp",
+  "section-competency": "./assets/paper-covers/multi-fidelity-virtual-sensing.webp",
+  "research-operator": "./assets/paper-covers/pinn-electromagnetism-pmsm.webp",
+  "research-multiphysics": "./assets/paper-covers/pmsm-mpi-don.webp",
+  "research-virtual-sensing": "./assets/paper-covers/multi-fidelity-virtual-sensing.webp",
+  "section-output": "./assets/paper-covers/physics-informed-rul.webp",
+  "section-collaboration": "./assets/paper-covers/induction-motor-bearing-faults.webp",
 };
 
 let language = "ko";
@@ -87,7 +87,7 @@ function render() {
       <div class="hero-copy reveal"><div class="hero-folio"><span>Research dossier / 2026</span><span>Hanyang University · ADIP Laboratory</span></div><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
         <div class="hero-actions"><a class="button button-primary" href="#research">${copy.primary}${arrow}</a><a class="text-link" href="#output">${copy.secondary}${arrow}</a></div>
       </div>
-      <div class="hero-image"><img src="${generatedImages[portfolio.visuals.hero]}" alt="System-level rotating machinery digital twin" fetchpriority="high"></div>
+      <div class="hero-image"><img src="${researchImages[portfolio.visuals.hero]}" alt="Published first page: digital twin model for a permanent-magnet synchronous motor" fetchpriority="high"></div>
       <div class="keyword-strip" aria-label="Research keywords">${portfolio.keywords.map((keyword) => `<span>${keyword}</span>`).join("")}</div>
     </section>
 
@@ -102,16 +102,16 @@ function render() {
 
     <section class="identity-section"><div class="shell">
       <div class="identity-heading"><p class="eyebrow">${copy.identityEyebrow}</p><h2>${copy.identityTitle}</h2><p>${copy.identityLead}</p></div>
-      <div class="section-media identity-media"><img src="${generatedImages[portfolio.visuals.identity]}" alt="" loading="lazy"></div>
+      <div class="section-media identity-media"><img src="${researchImages[portfolio.visuals.identity]}" alt="" loading="lazy"></div>
       <div class="identity-grid">${portfolio.identity.map((item) => `<article><span>${item.abbr}</span><h3>${item.title}</h3><p>${item[language]}</p></article>`).join("")}</div>
       <div class="convergence-line"><span>PHYSICS</span><i>+</i><span>DATA</span><i>+</i><span>AGENTS</span><b>→ VERIFIABLE INTELLIGENCE</b></div>
     </div></section>
 
-    <section class="competency-section"><div class="shell"><div class="section-heading compact"><div><p class="eyebrow">${copy.competencyEyebrow}</p><h2>${copy.competencyTitle}</h2></div></div><div class="section-media competency-media"><img src="${generatedImages[portfolio.visuals.competency]}" alt="" loading="lazy"></div><div class="competency-grid">${portfolio.competencies.map((item) => `<article><span>${item.number}</span><h3>${item.title}</h3><p>${item[language]}</p></article>`).join("")}</div></div></section>
+    <section class="competency-section"><div class="shell"><div class="section-heading compact"><div><p class="eyebrow">${copy.competencyEyebrow}</p><h2>${copy.competencyTitle}</h2></div></div><div class="section-media competency-media"><img src="${researchImages[portfolio.visuals.competency]}" alt="" loading="lazy"></div><div class="competency-grid">${portfolio.competencies.map((item) => `<article><span>${item.number}</span><h3>${item.title}</h3><p>${item[language]}</p></article>`).join("")}</div></div></section>
 
     <section class="section section-research" id="research"><div class="shell">
       <div class="section-heading"><div><p class="eyebrow">${copy.researchEyebrow}</p><h2>${copy.researchTitle}</h2></div><p>${copy.researchLead}</p></div>
-      <div class="research-list">${portfolio.research.map((item) => `<article class="research-item"><span class="item-number">${item.number}</span><div class="research-image"><img src="${generatedImages[item.image]}" alt="" loading="lazy"></div><div><h3>${item.title}</h3><p>${item[language]}</p>${tags(item.tags)}</div></article>`).join("")}</div>
+      <div class="research-list">${portfolio.research.map((item) => `<article class="research-item"><span class="item-number">${item.number}</span><div class="research-image"><img src="${researchImages[item.image]}" alt="" loading="lazy"></div><div><h3>${item.title}</h3><p>${item[language]}</p>${tags(item.tags)}</div></article>`).join("")}</div>
       <div class="stats-row">${portfolio.stats.map((stat) => `<div class="stat"><strong>${stat.value}</strong><span>${stat[language]}</span></div>`).join("")}</div>
     </div></section>
 
@@ -122,12 +122,12 @@ function render() {
 
     <section class="section section-output" id="output"><div class="shell">
       <div class="section-heading output-heading"><div><p class="eyebrow">${copy.outputEyebrow}</p><h2>${copy.outputTitle}</h2></div><p>${copy.outputLead}</p></div>
-      <div class="section-media output-media"><img src="${generatedImages[portfolio.visuals.output]}" alt="" loading="lazy"></div>
+      <div class="section-media output-media"><img src="${researchImages[portfolio.visuals.output]}" alt="" loading="lazy"></div>
       <div class="output-tabs" role="tablist" aria-label="Research output type"><button id="output-tab-publications" data-output="publications" role="tab" aria-controls="output-panel" aria-selected="${outputView === "publications"}" class="${outputView === "publications" ? "active" : ""}">${copy.publicationsTab}<span>${String(portfolio.publications.length).padStart(2, "0")}</span></button><button id="output-tab-talks" data-output="talks" role="tab" aria-controls="output-panel" aria-selected="${outputView === "talks"}" class="${outputView === "talks" ? "active" : ""}">${copy.talksTab}<span>${String(portfolio.talks.length).padStart(2, "0")}</span></button></div>
       <div class="output-list ${outputView === "publications" ? "publication-list" : "talk-list"}" id="output-panel" role="tabpanel" aria-labelledby="output-tab-${outputView}">${outputMarkup}</div>
     </div></section>
 
-    <section class="contact-section"><div class="shell contact-visual"><img src="${generatedImages[portfolio.visuals.collaboration]}" alt="" loading="lazy"></div><div class="shell contact-inner"><div><p class="eyebrow">${copy.contactEyebrow}</p><h2>${copy.contactTitle}</h2></div><div><p>${copy.contactLead}</p><div class="profile-links"><a href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a><a href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a></div></div></div></section>
+    <section class="contact-section"><div class="shell contact-visual"><img src="${researchImages[portfolio.visuals.collaboration]}" alt="" loading="lazy"></div><div class="shell contact-inner"><div><p class="eyebrow">${copy.contactEyebrow}</p><h2>${copy.contactTitle}</h2></div><div><p>${copy.contactLead}</p><div class="profile-links"><a href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a><a href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a></div></div></div></section>
     <footer class="site-footer"><div class="shell footer-inner"><div><strong>${portfolio.profile.name}</strong><span>${portfolio.profile.nameKo} · ${portfolio.profile.department}</span></div><span>${copy.footer}</span><a href="#top">${copy.backToTop} ${arrow}</a></div></footer>
   </main>`;
 

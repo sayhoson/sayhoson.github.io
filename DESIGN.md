@@ -2,7 +2,7 @@
 
 ## 1. Atmosphere & Identity
 
-This portfolio feels like a precise research instrument at night: quiet, rigorous, and visibly alive with measured energy. Its signature is the **luminous machine field**—real mechanical imagery framed by finely controlled cyan data paths on an ink-blue canvas—so the page reads as engineering work, not generic AI marketing.
+This portfolio feels like a precise research instrument at night: quiet, rigorous, and visibly alive with measured energy. Its signature is the **research evidence frame**—actual paper first pages and publication material set against a finely controlled ink-blue canvas—so the page reads as authored engineering work, not generic AI marketing.
 
 ## 2. Color
 
