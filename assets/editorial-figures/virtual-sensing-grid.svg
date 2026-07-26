@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+ <title id="title">Full-field virtual sensing diagram</title><desc id="desc">Sparse sensor observations are translated into a continuous vibration field across an inaccessible machine surface.</desc>
+ <rect width="960" height="640" fill="#f5eee5"/><g fill="none" stroke="#1d2324" stroke-width="2"><rect x="62" y="124" width="250" height="330" rx="4"/><rect x="648" y="124" width="250" height="330" rx="4"/><path d="M312 289h132M516 289h132"/><path d="m434 280 14 9-14 9m72-18 14 9-14 9"/></g>
+ <g stroke="#315c79" fill="none" stroke-width="2"><path d="M94 374c25-140 67 112 104-110s50 202 84-79"/><path d="M94 399c30-62 60-75 92-18s63 39 96-70"/><path d="M679 173h186M679 219h186M679 265h186M679 311h186M679 357h186M679 403h186"/><path d="M702 148v282M750 148v282M798 148v282M846 148v282"/><path stroke-width="8" opacity=".72" d="M681 389c31-95 56 24 89-91s58 64 92-98"/></g>
+ <g fill="#315c79"><circle cx="116" cy="312" r="9"/><circle cx="191" cy="248" r="9"/><circle cx="267" cy="350" r="9"/></g>
+ <g fill="#1d2324" font-family="Arial, sans-serif"><text x="88" y="164" font-size="17" letter-spacing="2">SPARSE INPUT</text><text x="674" y="164" font-size="17" letter-spacing="2">FULL RESPONSE FIELD</text><text x="364" y="266" font-size="17" letter-spacing="2">ALIGN</text><text x="350" y="325" font-size="17" letter-spacing="2">INFER</text><text x="90" y="432" font-size="15">three accessible measurements</text><text x="674" y="482" font-size="15">unobserved vibration distribution</text></g>
+ <text x="58" y="576" fill="#315c79" font-family="Arial, sans-serif" font-size="18" letter-spacing="3">FIG. 03 / SENSE WHAT THE HARDWARE CANNOT REACH</text>
+</svg>
