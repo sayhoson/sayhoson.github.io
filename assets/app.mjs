@@ -42,23 +42,6 @@ function paperCover(item, index, total) {
   </div>`;
 }
 
-function rotorGraphic() {
-  return `<div class="rotor-graphic" aria-hidden="true">
-    <div class="graphic-grid"></div>
-    <div class="rotor-ring ring-outer"></div><div class="rotor-ring ring-mid"></div><div class="rotor-ring ring-inner"></div>
-    <div class="rotor-core">${[1,2,3,4,5,6].map((number) => `<span class="blade blade-${number}"></span>`).join("")}</div>
-    <svg class="response-lines" viewBox="0 0 620 480" role="presentation">
-      <path d="M18 285 C96 285 126 185 212 214 S332 340 405 275 S514 205 604 235"></path>
-      <path d="M18 305 C92 315 137 240 211 246 S326 302 402 260 S522 228 604 253"></path>
-      <path d="M18 330 C104 344 145 286 218 278 S327 279 410 247 S530 250 604 286"></path>
-      <path d="M18 258 C99 244 129 147 212 184 S331 360 405 294 S523 187 604 212"></path>
-    </svg>
-    <div class="axis axis-x"><span>x</span></div><div class="axis axis-y"><span>y</span></div>
-    <div class="node node-a"></div><div class="node node-b"></div><div class="node node-c"></div><div class="node node-d"></div>
-    <p class="graphic-label label-top">SYSTEM RESPONSE · OPERATOR SPACE</p><p class="graphic-label label-bottom">FIELD → SPECTRUM → STATE</p>
-  </div>`;
-}
-
 function render() {
   const copy = portfolio.copy[language];
   const outputs = outputView === "publications" ? portfolio.publications : portfolio.talks;
