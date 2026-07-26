@@ -2,7 +2,7 @@
 
 ## 1. Atmosphere & Identity
 
-This portfolio feels like a precise research instrument at night: quiet, rigorous, and visibly alive with measured energy. Its signature is the **research evidence frame**—actual paper first pages and publication material set against a finely controlled ink-blue canvas—so the page reads as authored engineering work, not generic AI marketing.
+This portfolio feels like a precise research instrument at night: quiet, rigorous, and visibly alive with measured energy. Its signature is the **research evidence frame**—real rotating-machine photographs (PMSM assemblies, stator windings, rotor details, and laboratory apparatus) set against a finely controlled ink-blue canvas—so the page reads as authored engineering work, not generic AI marketing.
 
 ## 2. Color
 
@@ -49,7 +49,7 @@ Base unit is 4px. Tokens are 4, 8, 12, 16, 24, 32, 48, 64, 96, and 128px. Conten
 - **States**: selected signal underline and `aria-selected`; focus remains visible; keyboard works through native buttons.
 
 ### Media frame
-- **Structure**: image inside a 1px line frame with a radial cyan field overlay.
+- **Structure**: an actual rotating-machine photograph inside a 1px line frame with a radial cyan field overlay.
 - **States**: static; responsive crop preserves the subject.
 - **Accessibility**: decorative images use empty alt; informative hero uses specific alt text.
 

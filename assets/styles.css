@@ -534,6 +534,11 @@ body {
 
 .site-footer { color: var(--paper-300); background: var(--ink); border-top-color: var(--line); }
 .site-footer strong, .site-footer a { color: var(--white); }
+.photo-sources { padding-top: 0; padding-bottom: 26px; color: var(--muted); font-size: 11px; }
+.photo-sources summary { width: fit-content; cursor: pointer; letter-spacing: .06em; text-transform: uppercase; }
+.photo-sources ul { display: grid; gap: 5px; margin: 12px 0 0; padding: 0; list-style: none; }
+.photo-sources a { color: var(--paper-300); text-decoration: underline; text-decoration-color: rgba(78, 224, 237, .45); text-underline-offset: 3px; }
+.photo-sources a:hover, .photo-sources a:focus-visible { color: var(--signal-hi); }
 
 @media (max-width: 720px) {
   .site-header { background: rgba(5, 11, 20, .96); }

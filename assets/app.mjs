@@ -1,13 +1,13 @@
 import { portfolio } from "./content.mjs";
 const researchImages = {
-  "section-hero": "./assets/paper-covers/pmsm-mpi-don.webp",
-  "section-identity": "./assets/paper-covers/pinn-electromagnetism-pmsm.webp",
-  "section-competency": "./assets/paper-covers/multi-fidelity-virtual-sensing.webp",
-  "research-operator": "./assets/paper-covers/pinn-electromagnetism-pmsm.webp",
-  "research-multiphysics": "./assets/paper-covers/pmsm-mpi-don.webp",
-  "research-virtual-sensing": "./assets/paper-covers/multi-fidelity-virtual-sensing.webp",
-  "section-output": "./assets/paper-covers/physics-informed-rul.webp",
-  "section-collaboration": "./assets/paper-covers/induction-motor-bearing-faults.webp",
+  "section-hero": "./assets/research-photos/pmsm-assembly.jpg",
+  "section-identity": "./assets/research-photos/stator-winding.jpg",
+  "section-competency": "./assets/research-photos/motor-research-lab.jpg",
+  "research-operator": "./assets/research-photos/pmsm-assembly.jpg",
+  "research-multiphysics": "./assets/research-photos/stator-winding.jpg",
+  "research-virtual-sensing": "./assets/research-photos/rotor-balance.jpg",
+  "section-output": "./assets/research-photos/motor-research-lab.jpg",
+  "section-collaboration": "./assets/research-photos/rotor-balance.jpg",
 };
 
 let language = "ko";
@@ -87,7 +87,7 @@ function render() {
       <div class="hero-copy reveal"><div class="hero-folio"><span>Research dossier / 2026</span><span>Hanyang University · ADIP Laboratory</span></div><p class="eyebrow">${copy.eyebrow}</p><h1>Physics-informed AI<br>for Rotating Machinery</h1><p class="hero-intro">${copy.intro}</p><p class="affiliation">${portfolio.profile.affiliation} · ${portfolio.profile.role}</p>
         <div class="hero-actions"><a class="button button-primary" href="#research">${copy.primary}${arrow}</a><a class="text-link" href="#output">${copy.secondary}${arrow}</a></div>
       </div>
-      <div class="hero-image"><img src="${researchImages[portfolio.visuals.hero]}" alt="Published first page: digital twin model for a permanent-magnet synchronous motor" fetchpriority="high"></div>
+      <div class="hero-image"><img src="${researchImages[portfolio.visuals.hero]}" alt="A permanent-magnet synchronous motor assembly" fetchpriority="high"></div>
       <div class="keyword-strip" aria-label="Research keywords">${portfolio.keywords.map((keyword) => `<span>${keyword}</span>`).join("")}</div>
     </section>
 
@@ -128,7 +128,7 @@ function render() {
     </div></section>
 
     <section class="contact-section"><div class="shell contact-visual"><img src="${researchImages[portfolio.visuals.collaboration]}" alt="" loading="lazy"></div><div class="shell contact-inner"><div><p class="eyebrow">${copy.contactEyebrow}</p><h2>${copy.contactTitle}</h2></div><div><p>${copy.contactLead}</p><div class="profile-links"><a href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a><a href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a></div></div></div></section>
-    <footer class="site-footer"><div class="shell footer-inner"><div><strong>${portfolio.profile.name}</strong><span>${portfolio.profile.nameKo} · ${portfolio.profile.department}</span></div><span>${copy.footer}</span><a href="#top">${copy.backToTop} ${arrow}</a></div></footer>
+    <footer class="site-footer"><div class="shell footer-inner"><div><strong>${portfolio.profile.name}</strong><span>${portfolio.profile.nameKo} · ${portfolio.profile.department}</span></div><span>${copy.footer}</span><a href="#top">${copy.backToTop} ${arrow}</a></div><details class="shell photo-sources"><summary>Photo credits</summary><ul><li><a href="https://commons.wikimedia.org/wiki/File:Mitsubishi_i-MiEV_high-efficiency_permanent_magnet_synchronous_motor_(2010-10-16)_03.jpg" target="_blank" rel="noreferrer">PMSM assembly — OSX, public domain</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Stator_Winding_of_a_BLDC_Motor.jpg" target="_blank" rel="noreferrer">BLDC stator winding — Medvedev, CC BY-SA 3.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Electric_motor_rotor_with_balance_drill-holes-8594.jpg" target="_blank" rel="noreferrer">Rotor balance detail — Raimond Spekking, CC BY-SA 4.0</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Magnets_recovered_from_used_computer_hard_drives_find_new_life_in_an_electric_motor._(49773902177).jpg" target="_blank" rel="noreferrer">Motor research apparatus — Oak Ridge National Laboratory, CC BY 2.0</a></li></ul></details></footer>
   </main>`;
 
   root.querySelector(".menu-toggle")?.addEventListener("click", () => { menuOpen = !menuOpen; render(); });
