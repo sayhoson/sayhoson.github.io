@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
-const [index, app, styles, content, paperCoverFiles, editorialFigureFiles] = await Promise.all([
+const [index, app, styles, content, paperCoverFiles, generatedResearchFiles] = await Promise.all([
   readFile(new URL("../index.html", import.meta.url), "utf8"),
   readFile(new URL("../assets/app.mjs", import.meta.url), "utf8"),
   readFile(new URL("../assets/styles.css", import.meta.url), "utf8"),
   readFile(new URL("../assets/content.mjs", import.meta.url), "utf8"),
   readdir(new URL("../assets/paper-covers/", import.meta.url)),
-  readdir(new URL("../assets/editorial-figures/", import.meta.url)),
+  readdir(new URL("../assets/generated-research/", import.meta.url)),
 ]);
 
 test("publishes canonical and social metadata for the light editorial site", () => {
@@ -26,7 +26,7 @@ test("keeps the complete research portfolio navigation and accessible language s
   assert.match(app, /data-language="ko"/);
   assert.match(app, /aria-pressed="\$\{language === "ko"\}"/);
   assert.match(app, /Google Scholar/);
-  assert.match(app, /Photo credits/);
+  assert.match(app, /Image provenance/);
 });
 
 test("uses a warm editorial system with focus and motion safeguards", () => {
@@ -40,14 +40,14 @@ test("uses a warm editorial system with focus and motion safeguards", () => {
 });
 
 test("assigns every on-page visual a distinct asset", () => {
-  const paths = [...app.matchAll(/"(\.\/assets\/(?:research-photos|editorial-figures)\/[^"\n]+)"/g)].map((match) => match[1]);
+  const paths = [...app.matchAll(/"(\.\/assets\/generated-research\/[^"\n]+)"/g)].map((match) => match[1]);
   assert.equal(paths.length, 9);
   assert.equal(new Set(paths).size, paths.length);
-  assert.deepEqual(editorialFigureFiles.filter((name) => name.endsWith(".svg")).sort(), [
-    "bearing-agent.svg", "collaboration-loop.svg", "digital-twin-loop.svg", "operator-field.svg", "virtual-sensing-grid.svg",
+  assert.deepEqual(generatedResearchFiles.filter((name) => name.endsWith(".png")).sort(), [
+    "bearing-contact-fem.png", "digital-twin.png", "hero-pmsm-testbench.png", "lab-measurement.png", "operator-learning.png", "pmsm-cutaway.png", "research-collaboration.png", "rotor-test-rig.png", "virtual-sensing.png",
   ]);
-  assert.doesNotMatch(app, /research-diagrams/);
-  assert.doesNotMatch(app, /image-data/);
+  assert.doesNotMatch(app, /research-photos/);
+  assert.doesNotMatch(app, /editorial-figures/);
   assert.match(app, /revealElements\.forEach\(\(element\) => element\.classList\.add\("is-visible"\)\)/);
 });
 
