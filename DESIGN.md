@@ -5,7 +5,7 @@
 - **Portfolio references reviewed:** research publication indexes (Orca Bio), research-story pages (Zap Energy), and editorial case-study portfolios surfaced through Lazyweb research for `scientist portfolio publications`, `research portfolio editorial`, and `designer portfolio case study clean`.
 - **Applied decision:** retain the clear evidence-first hierarchy of a publication index, but pair it with the warm paper surfaces, generous reading space, and whisper borders associated with editorial portfolios. No dashboard panels, dark-mode instrument styling, gradients, or generic AI imagery remain.
 - **Image concept review:** a generated editorial research-page concept was reviewed only to validate hierarchy: a single laboratory hero image, three method figures, a complete project index, and publication rows. It is not used in the website.
-- **Image policy:** each rendered visual uses a unique local asset. Four licensed/public-domain laboratory and motor photographs are used once each; five bespoke SVG diagrams explain the actual research methods and workflows. Publication covers remain the verified, unique first pages of the publications.
+- **Image policy:** each rendered visual uses a unique local image generated specifically for this site. The visual subjects are assigned to a single research purpose: test bench, operator learning, digital twin, virtual sensing, lab measurement, PMSM cutaway, rotor test rig, bearing contact FEM, or collaboration. Publication covers remain the verified, unique first pages of the publications.
 
 ## 1. Atmosphere
 
@@ -46,10 +46,8 @@ The site is a research field notebook: composed, readable, and evidence-led. War
 - Images that carry research meaning have specific alt text; publication covers are decorative because adjacent bibliographic text contains the information.
 - Reveal animation uses only opacity and transform and is removed under `prefers-reduced-motion`.
 
-## 6. Image Credits
+## 6. Image Provenance
 
-- PMSM assembly: OSX, public domain, Wikimedia Commons.
-- BLDC stator winding: Medvedev, CC BY-SA 3.0, Wikimedia Commons.
-- Rotor balance detail: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons.
-- Motor research apparatus: Oak Ridge National Laboratory, CC BY 2.0, Wikimedia Commons.
-- All diagrams in `assets/editorial-figures/` were made for this portfolio.
+- Nine visuals in `assets/generated-research/` were generated specifically for this website.
+- Each generated image is rendered only once in the page and has an explicit research-context alt description.
+- Publication covers are the verified unique first pages of the published work.

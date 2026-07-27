@@ -1,19 +1,19 @@
 import { portfolio } from "./content.mjs";
 
 const visual = {
-  hero: "./assets/research-photos/pmsm-assembly.jpg",
-  profile: "./assets/research-photos/motor-research-lab.jpg",
+  hero: "./assets/generated-research/hero-pmsm-testbench.png",
+  profile: "./assets/generated-research/lab-measurement.png",
   research: [
-    "./assets/editorial-figures/operator-field.svg",
-    "./assets/editorial-figures/digital-twin-loop.svg",
-    "./assets/editorial-figures/virtual-sensing-grid.svg",
+    "./assets/generated-research/operator-learning.png",
+    "./assets/generated-research/digital-twin.png",
+    "./assets/generated-research/virtual-sensing.png",
   ],
   projects: [
-    "./assets/research-photos/stator-winding.jpg",
-    "./assets/research-photos/rotor-balance.jpg",
-    "./assets/editorial-figures/bearing-agent.svg",
+    "./assets/generated-research/pmsm-cutaway.png",
+    "./assets/generated-research/rotor-test-rig.png",
+    "./assets/generated-research/bearing-contact-fem.png",
   ],
-  collaboration: "./assets/editorial-figures/collaboration-loop.svg",
+  collaboration: "./assets/generated-research/research-collaboration.png",
 };
 
 const visualAlt = {
@@ -89,7 +89,7 @@ function render() {
     </div></section>
 
     <section class="contact-section"><div class="shell"><figure class="collaboration-figure"><img src="${visual.collaboration}" alt="Research collaboration loop connecting modeling, experiments, and applications." loading="lazy"></figure><div class="contact-copy"><p class="kicker">COLLABORATION</p><h2>${copy.contactTitle}</h2><p>${copy.contactLead}</p><div><a class="button" href="${portfolio.profile.scholar}" target="_blank" rel="noreferrer">Google Scholar ${arrow}</a><a class="quiet-link" href="${portfolio.profile.github}" target="_blank" rel="noreferrer">GitHub ${arrow}</a></div></div></div></section>
-    <footer><div class="shell footer-inner"><span>${portfolio.profile.nameKo} / ${portfolio.profile.department}</span><a href="#top">${copy.backToTop} ${arrow}</a><span>${copy.footer}</span></div><details class="shell photo-credits"><summary>Photo credits</summary><ul><li>PMSM assembly: OSX, public domain, Wikimedia Commons.</li><li>BLDC stator winding: Medvedev, CC BY-SA 3.0, Wikimedia Commons.</li><li>Rotor balance detail: Raimond Spekking, CC BY-SA 4.0, Wikimedia Commons.</li><li>Motor research apparatus: Oak Ridge National Laboratory, CC BY 2.0, Wikimedia Commons.</li></ul></details></footer>
+    <footer><div class="shell footer-inner"><span>${portfolio.profile.nameKo} / ${portfolio.profile.department}</span><a href="#top">${copy.backToTop} ${arrow}</a><span>${copy.footer}</span></div><details class="photo-credits shell"><summary>Image provenance</summary><p>All portfolio visuals were generated specifically for this site and are used once each to represent the corresponding research topic.</p></details></footer>
   </main>`;
 
   root.querySelectorAll("[data-language]").forEach((button) => button.addEventListener("click", () => { language = button.dataset.language; render(); }));
