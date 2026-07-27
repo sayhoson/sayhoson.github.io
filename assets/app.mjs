@@ -40,8 +40,8 @@ const list = (items) => `<ul class="tags">${items.map((item) => `<li>${item}</li
 function publication(item, index) {
   return `<article class="publication">
     <div class="publication-number">${String(index + 1).padStart(2, "0")}</div>
-    <div class="publication-main"><p>${item.year} &middot; ${item.type}</p><h3>${item.title}</h3><span>${item[language === "ko" ? "metaKo" : "metaEn"]}</span></div>
-    ${item.cover ? `<img class="publication-cover" src="${item.cover}" alt="" loading="lazy">` : ""}
+    <div class="publication-main"><p>${item.year} &middot; ${item.type}${item.status ? ` &middot; ${item.status}` : ""}</p><h3>${item.title}</h3><span>${item[language === "ko" ? "metaKo" : "metaEn"]}</span></div>
+    ${item.cover ? `<img class="publication-cover" src="${item.cover}" alt="" loading="lazy">` : `<span class="publication-status">${item.status || ""}</span>`}
   </article>`;
 }
 
@@ -64,7 +64,7 @@ function render() {
 
     <section class="statement" id="identity"><div class="shell statement-grid">
       <div><p class="kicker">RESEARCHER PROFILE</p><h2>${copy.profileTitle}</h2></div>
-      <div class="statement-side"><p>${copy.profileLead}</p><dl><div><dt>ROLE</dt><dd>${portfolio.profile.role}</dd></div><div><dt>LAB</dt><dd>ADIP Laboratory</dd></div><div><dt>FOCUS</dt><dd>Physics, data, and engineering systems</dd></div></dl></div>
+      <div class="statement-side"><p>${copy.profileLead}</p><dl><div><dt>ROLE</dt><dd>${portfolio.profile.role}</dd></div><div><dt>PROGRAM</dt><dd>${portfolio.profile.department}</dd></div><div><dt>ADVISOR</dt><dd>${portfolio.profile.advisor}</dd></div><div><dt>EDUCATION</dt><dd>${portfolio.profile.education}</dd></div></dl></div>
     </div></section>
 
     <section class="research-section" id="research"><div class="shell">
@@ -74,7 +74,7 @@ function render() {
 
     <section class="method-section"><div class="shell method-grid">
       <figure><img src="${visual.profile}" alt="${visualAlt.profile}" loading="lazy"><figcaption>LABORATORY NOTE &mdash; MEASUREMENT IS PART OF THE MODEL</figcaption></figure>
-      <div><p class="kicker">RESEARCH POSITION</p><h2>${copy.identityTitle}</h2><p>${copy.identityLead}</p><div class="method-points"><span>01 / MODEL</span><span>02 / MEASURE</span><span>03 / VERIFY</span></div></div>
+      <div><p class="kicker">RESEARCH POSITION</p><h2>${copy.identityTitle}</h2><p>${copy.identityLead}</p><div class="method-points">${portfolio.profile.interests.map((interest, index) => `<span>${String(index + 1).padStart(2, "0")} / ${interest}</span>`).join("")}</div></div>
     </div></section>
 
     <section class="projects-section" id="projects"><div class="shell">

@@ -36,7 +36,7 @@ The site is a research field notebook: composed, readable, and evidence-led. War
 - Hero: one informative PMSM photograph, a figure caption, and two direct navigation actions.
 - Research directions: three unique method diagrams with an explanatory caption, summary, and technique tags.
 - Projects: the complete project list, not a selected subset; each row has one unique visual and a clear outcome.
-- Publications: every verified paper is present as an index row with one unique first-page cover.
+- Publications: verified papers use one unique first-page cover; explicitly in-preparation work uses a compact text status rather than an invented cover.
 - Collaboration: one distinct workflow diagram connects model, experiment, and application.
 
 ## 5. Interaction and Accessibility
