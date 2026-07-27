@@ -15,8 +15,17 @@ export const portfolio = {
   profile: {
     name: "Seho Son",
     nameKo: "손세호",
-    role: "Ph.D. Candidate Researcher",
-    department: "Mechanical Engineering",
+    role: "Ph.D. Candidate",
+    department: "Mechanical Convergence Engineering",
+    advisor: "Ki-Yong Oh, Ph.D.",
+    education: "Hanyang University, Mar. 2020–Present",
+    interests: [
+      "Applied Dynamics",
+      "AI for PHM",
+      "Physics-Informed ML",
+      "Surrogate Modeling & Virtual Sensing",
+      "LLM-based Agent Systems",
+    ],
     affiliation: "Hanyang University · ADIP Laboratory",
     github: "https://github.com/sayhoson",
     scholar: "https://scholar.google.com/citations?user=KOemZlcAAAAJ&hl=ko",
@@ -172,6 +181,14 @@ export const portfolio = {
   ],
   publications: [
     {
+      year: "2026",
+      type: "Reliability Engineering & System Safety",
+      status: "IN PREPARATION",
+      title: "Multi-agent for bearing PHM",
+      metaKo: "Seho Son · Dayeon Jeong · Kyung Ho Sun · Ki-Yong Oh",
+      metaEn: "Seho Son · Dayeon Jeong · Kyung Ho Sun · Ki-Yong Oh",
+    },
+    {
       year: "2025",
       type: "Engineering Applications of Artificial Intelligence",
       title: "Physics-informed deep learning framework for explainable remaining useful life prediction",
@@ -244,7 +261,7 @@ export const portfolio = {
       cover: "./assets/paper-covers/margin-maximized-elevator-door.webp",
     },
   ],
-  talks: [
+  legacyTalks: [
     {
       year: "Seminar",
       type: "40 min",
@@ -265,6 +282,29 @@ export const portfolio = {
       title: "Agentic PHM for On-device Intelligence",
       metaKo: "경량화 PHM, 온보드 추론과 지식 증류 · 자료 링크 추가 예정",
       metaEn: "Lightweight PHM, onboard inference, and knowledge distillation · Link to be added",
+    },
+  ],
+  talks: [
+    {
+      year: "2025",
+      type: "Conference presentation",
+      title: "Physics-informed DeepONet with modal coordinate encoding for dynamic response prediction of a traction motor under unseen housing geometries",
+      metaKo: "Korean Society for Nondestructive Testing Annual Spring Conference · Busan · May 2025",
+      metaEn: "Korean Society for Nondestructive Testing Annual Spring Conference · Busan · May 2025",
+    },
+    {
+      year: "2024",
+      type: "Conference presentation",
+      title: "Multiphysics-Informed Deep Operator Network for an Artificial Intelligence Transformation of Permanent Magnet Synchronous Motor",
+      metaKo: "ECAI 2024 · Bari, Italy · October 19–24, 2024",
+      metaEn: "ECAI 2024 · Bari, Italy · October 19–24, 2024",
+    },
+    {
+      year: "2024",
+      type: "Invited talk",
+      title: "Physics-informed Neural Network: principles and techniques",
+      metaKo: "PHM Korea 2024 · Seoul · June 24–26, 2024",
+      metaEn: "PHM Korea 2024 · Seoul · June 24–26, 2024",
     },
   ],
   copy: {

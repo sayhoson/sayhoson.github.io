@@ -57,3 +57,13 @@ test("shows all verified publication covers without a generated substitute", () 
   assert.equal((content.match(/cover: "\.\/assets\/paper-covers\//g) || []).length, 9);
   assert.equal(paperCoverFiles.filter((name) => name.endsWith(".webp")).length, 9);
 });
+
+test("reflects the CV-backed academic profile, ongoing work, and presentations", () => {
+  assert.match(content, /Mechanical Convergence Engineering/);
+  assert.match(content, /Ki-Yong Oh, Ph\.D\./);
+  assert.match(content, /Multi-agent for bearing PHM/);
+  assert.match(content, /IN PREPARATION/);
+  assert.match(content, /ECAI 2024/);
+  assert.match(app, /portfolio\.profile\.advisor/);
+  assert.match(app, /portfolio\.profile\.interests/);
+});
